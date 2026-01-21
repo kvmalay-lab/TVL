@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Play, History, Dumbbell } from 'lucide-react';
+import { LayoutDashboard, Play, History, Dumbbell, ArrowLeft } from 'lucide-react';
 
 const Layout = ({ children }) => {
   return (
@@ -11,12 +11,21 @@ const Layout = ({ children }) => {
           <div className="p-2 bg-indigo-600 rounded-lg">
             <Dumbbell className="w-6 h-6 text-white" />
           </div>
-          <h1 className="text-xl font-bold tracking-tight">FitFlex</h1>
+          <h1 className="text-xl font-bold tracking-tight">TVL Fitness</h1>
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
+          {/* Back to Home Link */}
           <NavLink
             to="/"
+            className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-700 hover:text-white transition-colors text-sm border-b border-gray-700 mb-3 pb-3"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span className="font-medium">Back to Home</span>
+          </NavLink>
+
+          <NavLink
+            to="/app/dashboard"
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                 isActive
@@ -30,7 +39,7 @@ const Layout = ({ children }) => {
           </NavLink>
 
           <NavLink
-            to="/workout"
+            to="/app/workout"
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                 isActive
@@ -44,7 +53,7 @@ const Layout = ({ children }) => {
           </NavLink>
 
           <NavLink
-            to="/history"
+            to="/app/history"
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                 isActive
@@ -60,7 +69,7 @@ const Layout = ({ children }) => {
 
         <div className="p-4 border-t border-gray-700">
           <div className="text-xs text-gray-500 text-center">
-            &copy; {new Date().getFullYear()} FitFlex
+            &copy; {new Date().getFullYear()} TVL Fitness
           </div>
         </div>
       </aside>
